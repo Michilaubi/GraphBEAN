@@ -84,7 +84,7 @@ class BEANConv(MessagePassing):
         assert self.input_has_edge_channel == (xe is not None)
 
         # propagate_type: (x: PairTensor)
-        (out_u, out_v), out_e = self.propagate(adj, x=x, xe=xe)
+        (out_u, out_v), out_e = self.propagate(adj, x=x, edge_attr=xe)
 
         # lin layer
         out_u = self.lin_u(out_u)
